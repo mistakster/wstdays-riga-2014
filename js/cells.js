@@ -15,7 +15,7 @@
 				strokeStyle: 'hsla(60, 37%, 17%, 1)',
 				lineWidth: 1,
 				fillStyle: 'hsla(60, 37%, 57%, 0.8)',
-				angleIndicator: 'hsla(60, 37%, 17%, 0.4)'
+				angleIndicator: false
 			}
 		}
 	});
@@ -37,14 +37,14 @@
 				radius: 40,
 				vx: Physics.util.random(0.01) - 0.005,
 				vy: Physics.util.random(0.01) - 0.005,
-				restitution: 0.99
+				restitution: 0.7
 			});
 
 			world.add(p);
 
 			setTimeout(function () {
-				born(viewWidth / 2, viewHeight / 2);
-			}, 500);
+				born(Physics.util.random(viewWidth), Physics.util.random(viewHeight));
+			}, 2000);
 
 		}
 
@@ -60,7 +60,7 @@
 		world.add(renderer);
 		world.add(edgeBounce);
 		world.add(Physics.behavior('body-impulse-response'));
-		world.add(Physics.behavior('newtonian', { strength: .1 }));
+		world.add(Physics.behavior('newtonian', { strength: 1 }));
 		world.add(Physics.behavior('sweep-prune'));
 		world.add(Physics.behavior('body-collision-detection', { checkAll: false }));
 		Physics.util.ticker.subscribe(function (time, dt) {
