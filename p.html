@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<canvas id="viewport-cover" class="canvas" style="width: 800px; height: 600px;"></canvas>
+
+<script src="js/libs/jquery-2.1.0.min.js"></script>
+<script src="js/libs/physicsjs-full-0.5.4.js"></script>
+<script src="js/cells.js"></script>
+<script>
+	world = App.Cells(document.getElementById("viewport-cover"));
+	world.unpause();
+</script>
+
+</body>
+</html>

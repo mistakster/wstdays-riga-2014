@@ -1,40 +1,64 @@
-(function () {
+(function (window) {
 
-	return;
+	var App = window.App = (window.App || {});
 
-	var $viewport = $('#viewport-cover'),
-		viewWidth = $viewport.width(),
-		viewHeight = $viewport.height();
+	App.Cells = function (el, viewWidth, viewHeight) {
+		viewWidth = viewWidth || el.clientWidth;
+		viewHeight = viewHeight || el.clientHeight;
 
-	var renderer = Physics.renderer('canvas', {
-		el: 'viewport-cover',
-		width: viewWidth,
-		height: viewHeight,
-		meta: false,
-		debug: false,
-		styles: {
-			'circle': {
-				strokeStyle: 'hsla(60, 37%, 17%, 1)',
-				lineWidth: 1,
-				fillStyle: 'hsla(60, 37%, 57%, 0.8)',
-				angleIndicator: false
+		var renderer = Physics.renderer('canvas', {
+			el: el,
+			width: viewWidth,
+			height: viewHeight,
+			meta: false,
+			debug: false,
+			styles: {
+				'circle': {
+					strokeStyle: 'hsla(60, 37%, 17%, 1)',
+					lineWidth: 1,
+					fillStyle: 'hsla(60, 37%, 57%, 0.8)',
+					angleIndicator: false
+				}
 			}
-		}
-	});
+		});
 
-	var edgeBounce = Physics.behavior('edge-collision-detection', {
-		aabb: Physics.aabb(0, 0, viewWidth, viewHeight),
-		restitution: 0.99,
-		cof: 0.99
-	});
+		var world = new Physics();
+		world.pause();
+		world.add(renderer);
+		world.add(
+			Physics.behavior('edge-collision-detection', {
+				aabb: Physics.aabb(0, 0, viewWidth, viewHeight),
+				restitution: 0.99,
+				cof: 0.99
+			})
+		);
+		world.add(Physics.behavior('body-impulse-response'));
+		world.add(Physics.behavior('newtonian', { strength: 1 }));
+		world.add(Physics.behavior('sweep-prune'));
+		world.add(Physics.behavior('body-collision-detection', { checkAll: false }));
 
+		Physics.util.ticker
+			.subscribe(function (time, dt) {
+				if (!world.isPaused()) {
+					world.step(time);
+					world.render();
+				}
+			})
+			.start();
 
-	var sim = function (world, Physics) {
+		var lastTime = new Date();
 
-		function born(x, y) {
-			var p = Physics.body('circle', {
-				x: x,
-				y: y,
+		world.subscribe('step', function () {
+			var now = new Date();
+			if (now - lastTime < 2000) {
+				return;
+			}
+
+			lastTime = now;
+
+			var cell = Physics.body('circle', {
+				x: Physics.util.random(viewWidth),
+				y: Physics.util.random(viewHeight),
 				mass: 1,
 				radius: 40,
 				vx: Physics.util.random(0.01) - 0.005,
@@ -42,36 +66,32 @@
 				restitution: 0.7
 			});
 
-			world.add(p);
+			setTimeout(function () {
+				cell.view = renderer.createView(cell.geometry, {
+					strokeStyle: 'hsla(40, 37%, 17%, 1)',
+					lineWidth: 1,
+					fillStyle: 'hsla(40, 37%, 57%, 0.8)',
+					angleIndicator: false
+				})
+			}, 30000);
 
 			setTimeout(function () {
-				born(Physics.util.random(viewWidth), Physics.util.random(viewHeight));
-			}, 2000);
+				cell.view = renderer.createView(cell.geometry, {
+					strokeStyle: 'hsla(0, 37%, 17%, 1)',
+					lineWidth: 1,
+					fillStyle: 'hsla(0, 37%, 57%, 0.8)',
+					angleIndicator: false
+				})
+			}, 50000);
 
-		}
+			setTimeout(function () {
+				world.remove(cell);
+			}, 60000);
 
-		born(viewWidth / 2, viewHeight / 2);
+			world.add(cell);
+		});
 
+		return world;
 	};
 
-	$(function () {
-		Physics.util.ticker.start();
-		// initialize the world
-		var world = Physics(sim);
-		world.pause();
-		world.add(renderer);
-		world.add(edgeBounce);
-		world.add(Physics.behavior('body-impulse-response'));
-		world.add(Physics.behavior('newtonian', { strength: 1 }));
-		world.add(Physics.behavior('sweep-prune'));
-		world.add(Physics.behavior('body-collision-detection', { checkAll: false }));
-		Physics.util.ticker.subscribe(function (time, dt) {
-			world.step(time);
-			if (!world.isPaused()) {
-				world.render();
-			}
-		});
-		world.unpause();
-	});
-
-}());
+}(window));
