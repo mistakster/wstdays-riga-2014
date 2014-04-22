@@ -21,11 +21,91 @@
 		<h1>From simple to complex</h1>
 		<p>Vladimir Kuznetsov</p>
 	</header>
-	<section class="slide cover" id="Cover"><div>
-		<canvas id="viewport-cover" class="canvas"></canvas>
-	</div></section>
+	<section class="slide cover" id="Cover">
+		<div>
+			<canvas id="viewport-cover" class="canvas"></canvas>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Mobile first approach</h2>
+			<img src="http://placehold.it/784x392&text=Mobiles,+tablets,+desktop">
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Mobile first approach</h2>
+			<ol>
+				<li class="next">Typography</li>
+				<li class="next">Layout</li>
+				<li class="next">Images</li>
+				<li class="next">JavaScripts</li>
+			</ol>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Typography</h2>
+			<p>New defaults for <code>font-size</code>, <code>line-height</code></p>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Layouts</h2>
+			<p>Media queries is started from <code>min-</code></p>
+			<pre>
+				<code>@media (min-width: 640px) {</code>
+				<code>}</code>
+			</pre>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Responsive images</h2>
+			<p>&lt;img style=&quot;width: 100%;&quot;&gt;</p>
+			<p>&lt;picture&gt;</p>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Responsive images</h2>
+			<p>Picturefill</p>
+			<p class="next">It can work with <code>&lt;span&gt;</code>-based markup or <code>&lt;picture&gt;</code></p>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>matchMedia</h2>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Second breath of conditional resource loaders</h2>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Build</h2>
+			<ol>
+				<li>Common resources</li>
+				<li>Resources only for mobiles</li>
+				<li>Resources for desktops</li>
+			</ol>
+		</div>
+	</section>
+	<section class="slide">
+		<div>
+			<h2>Include</h2>
+			<ol>
+				<li>Common resources at the <code>&lt;head&gt;</code></li>
+				<li>Resources only for mobiles just before <code>&lt;/body&gt;</code></li>
+				<li>Resources for desktops using <strong>conditional loader</strong></li>
+			</ol>
+		</div>
+	</section>
 
 	<div class="progress"><div></div></div>
+
 	<script src="shower/shower.min.js"></script>
 	<script src="shower/shower-events.js"></script>
 	<script src="js/libs/jquery-2.1.0.min.js"></script>

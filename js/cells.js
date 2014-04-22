@@ -1,5 +1,7 @@
 (function () {
 
+	return;
+
 	var $viewport = $('#viewport-cover'),
 		viewWidth = $viewport.width(),
 		viewHeight = $viewport.height();
