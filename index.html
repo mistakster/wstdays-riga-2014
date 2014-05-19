@@ -41,11 +41,6 @@
                 <span class="light">Engine6</span></p>
         </div>
     </section>
-    <section class="slide shout">
-        <div>
-            <h2>Мобильники атакуют</h2>
-        </div>
-    </section>
     <section class="slide cover w">
         <div>
             <img src="assets/apple-products-mockup-display.png">
@@ -222,14 +217,14 @@
         <div>
             <pre>
                 <code>&lt;span data-alt=&quot;Responsive image&quot; <mark>data-picture</mark>&gt;</code>
-                <code>  &lt;span data-src=&quot;mobile.jpg&quot;&gt;&lt;/span&gt;</code>
-                <code>  &lt;span data-src=&quot;retina.jpg&quot; data-media=&quot;</code>
+                <code>  &lt;span data-src=&quot;<mark class="important">mobile.jpg</mark>&quot;&gt;&lt;/span&gt;</code>
+                <code>  &lt;span data-src=&quot;<mark class="important">retina.jpg</mark>&quot; data-media=&quot;</code>
                 <code>    only screen and (-webkit-min-device-pixel-ratio: 1.5),</code>
                 <code>    only screen and (min-resolution: 1.5dppx),</code>
                 <code>    only screen and (min-resolution: 144dpi)&quot;&gt;&lt;/span&gt;</code>
-                <code>  &lt;span data-src=&quot;desktop.jpg&quot; data-media=&quot;</code>
+                <code>  &lt;span data-src=&quot;<mark class="important">desktop.jpg</mark>&quot; data-media=&quot;</code>
                 <code>    (min-width: 720px)&quot;&gt;&lt;/span&gt;</code>
-                <code>&lt;/span&gt;
+                <code>&lt;/span&gt;</code>
             </pre>
         </div>
     </section>
@@ -238,9 +233,23 @@
             <h2>Хостинг картинок + CDN</h2>
             <p>Обрезка, изменение размеров, конвертирование форматов, сохраниение с нужным качеством</p>
             <ul>
-                <li class="next">Uploadcare (scale, crop)</li>
-                <li class="next">Cloudinary (scale, crop, <strong>face crop</strong>)</li>
+                <li class="next"><a href="https://uploadcare.com" target="_blank">Uploadcare</a> (scale, crop)<br>
+                    http://&hellip;<mark>/crop/200x300/center/</mark>image.jpg</li>
+                <li class="next"><a href="http://cloudinary.com" target="_blank">Cloudinary</a> (scale, crop, <strong>face crop</strong>)<br>
+                    http://&hellip;<mark>/w_200,h_300,c_fill,g_face/</mark>image.jpg</li>
             </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Face crop</h2>
+            <img src="assets/ctrl-freaks-face-crop.jpg" style="width: 100%;">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Обрезка по центру</h2>
+            <img src="assets/ctrl-freaks-center-crop.jpg" style="width: 100%;">
         </div>
     </section>
     <section class="slide shout">
