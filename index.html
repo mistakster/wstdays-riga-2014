@@ -13,6 +13,19 @@
         .slide.shout h2 .quiet {
             font-size: 80px;
         }
+        #Intro {
+            text-align: center;
+        }
+        #Intro h2 {
+            font-size: 150px;
+        }
+        #Intro .conference {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        #Intro:after {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body class="full">
@@ -20,9 +33,17 @@
         <h1>От простого к сложному</h1>
         <p>Владимир Кузнецов</p>
     </header>
-    <section class="slide">
+    <section class="slide introduction" id="Intro">
         <div>
-            Мобильники атакуют
+            <p class="conference">Web Standards Days, Рига, Май 2014</p>
+            <h2>От&nbsp;простого к&nbsp;сложному</h2>
+            <p><a href="http://noteskeeper.ru/about/">Владимир Кузнецов</a>,
+                <span class="light">Engine6</span></p>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Мобильники атакуют</h2>
         </div>
     </section>
     <section class="slide cover w">
@@ -32,17 +53,17 @@
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=London+Live:+Mobile+view,+desktop+view">
+            <img src="assets/ll-mobile-desktop.png">
         </div>
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=Luke+W+“Mobile+First”+book+cover">
+            <img src="assets/luke-wroblewski-mobile-first-book.png">
         </div>
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=From+mobile+view+to+desktop+view">
+            <img src="assets/from-mobile-to-desktop.png">
         </div>
     </section>
     <section class="slide cover w">
@@ -52,7 +73,8 @@
     </section>
     <section class="slide">
         <div>
-            <p>Ilya Grigorik, web performance engineer, Google</p>
+            <h2>Ilya Grigorik</h2>
+            <p>web performance engineer, Google</p>
             <p><a href="https://www.igvita.com" target="_blank">www.igvita.com</a></p>
         </div>
     </section>
@@ -111,7 +133,7 @@
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=Tablet+1024px+x+576px">
+            <img src="assets/wierd-device.png">
         </div>
     </section>
     <section class="slide">
@@ -128,7 +150,7 @@
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=Art+direction">
+            <img src="assets/art-direction.png">
         </div>
     </section>
     <section class="slide shout shout_quiet">
@@ -227,7 +249,7 @@
     </section>
     <section class="slide cover w">
         <div>
-            <img src="http://placehold.it/784x392&text=Compile+LESS+to+CSS">
+            <img src="assets/build-styles.png">
         </div>
     </section>
     <section class="slide shout">
