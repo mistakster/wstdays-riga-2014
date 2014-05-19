@@ -1,117 +1,251 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>“From simple to complex”, Web Standards Days, Riga, May 2014</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=792, user-scalable=no">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
-	<style>
-		.canvas {
-			width: 100%;
-			height: 100%;
-		}
-		#Cover {
-			background: white;
-		}
-	</style>
+    <title>“From simple to complex”, Web Standards Days, Riga, May 2014</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+    <style>
+        .slide.cover {
+            background: white;
+        }
+        .slide.shout h2 .quiet {
+            font-size: 80px;
+        }
+    </style>
 </head>
 <body class="full">
-	<header class="caption">
-		<h1>From simple to complex</h1>
-		<p>Vladimir Kuznetsov</p>
-	</header>
-	<section class="slide cover" id="Cover">
-		<div>
-			<canvas id="viewport-cover" class="canvas"></canvas>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Mobile first approach</h2>
-			<img src="http://placehold.it/784x392&text=Mobiles,+tablets,+desktop">
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Mobile first approach</h2>
-			<ol>
-				<li class="next">Typography</li>
-				<li class="next">Layout</li>
-				<li class="next">Images</li>
-				<li class="next">JavaScripts</li>
-			</ol>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Typography</h2>
-			<p>New defaults for <code>font-size</code>, <code>line-height</code></p>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Layouts</h2>
-			<p>Media queries is started from <code>min-</code></p>
-			<pre>
-				<code>@media (min-width: 640px) {</code>
-				<code>}</code>
-			</pre>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Responsive images</h2>
-			<p>&lt;img style=&quot;width: 100%;&quot;&gt;</p>
-			<p>&lt;picture&gt;</p>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Responsive images</h2>
-			<p>Picturefill</p>
-			<p class="next">It can work with <code>&lt;span&gt;</code>-based markup or <code>&lt;picture&gt;</code></p>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>matchMedia</h2>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Second breath of conditional resource loaders</h2>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Build</h2>
-			<ol>
-				<li>Common resources</li>
-				<li>Resources only for mobiles</li>
-				<li>Resources for desktops</li>
-			</ol>
-		</div>
-	</section>
-	<section class="slide">
-		<div>
-			<h2>Include</h2>
-			<ol>
-				<li>Common resources at the <code>&lt;head&gt;</code></li>
-				<li>Resources only for mobiles just before <code>&lt;/body&gt;</code></li>
-				<li>Resources for desktops using <strong>conditional loader</strong></li>
-			</ol>
-		</div>
-	</section>
+    <header class="caption">
+        <h1>От простого к сложному</h1>
+        <p>Владимир Кузнецов</p>
+    </header>
+    <section class="slide">
+        <div>
+            Мобильники атакуют
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="assets/apple-products-mockup-display.png">
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=London+Live:+Mobile+view,+desktop+view">
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=Luke+W+“Mobile+First”+book+cover">
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=From+mobile+view+to+desktop+view">
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="assets/wireless-last-mile.png">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <p>Ilya Grigorik, web performance engineer, Google</p>
+            <p><a href="https://www.igvita.com" target="_blank">www.igvita.com</a></p>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <p>Предзагрузка и предварительный рендеринг</p>
+            <ul>
+                <li>&lt;link rel=&quot;dns-prefetch&quot;&gt;</li>
+                <li>&lt;link rel=&quot;prefetch&quot;&gt;</li>
+                <li>&lt;link rel=&quot;prerender&quot;&gt;</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>matchMedia</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>matchMedia</h2>
+            <pre>
+                <code>if (window.matchMedia("(min-width: 720px)").matches) {</code>
+                <code>  // the view port is <mark>at least 720 pixels</mark> wide</code>
+                <code>} else {</code>
+                <code>  // the view port is <mark>less than 720 pixels</mark> wide</code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>matchMedia</h2>
+            <pre>
+                <code>var mql = window.matchMedia("(min-width: 720px)");</code>
+                <code>mql.addListener(function (mediaQueryList) {</code>
+                <code>  // mediaQueryList.matches</code>
+                <code>  // <mark>true</mark> if the document currently matches</code>
+                <code>  // the media query list; otherwise <mark>false</mark></code>
+                <code>}</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>matchMedia</h2>
+            <pre>
+                <code>Environment.waitForDesktop(function () {</code>
+                <code>  Modernizr.load([</code>
+                <code>    &quot;/styles/desktop.css&quot;,</code>
+                <code>    &quot;/scripts/desktop.js&quot;</code>
+                <code>  ]);</code>
+                <code>});</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=Tablet+1024px+x+576px">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>matchMedia</h2>
+            <p>Статья, исходный код и примеры &mdash;<br>
+                <a href="http://noteskeeper.ru/1133/" target="_blank">noteskeeper.ru/1133</a></p>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Иллюстрации</h2>
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=Art+direction">
+        </div>
+    </section>
+    <section class="slide shout shout_quiet">
+        <div>
+            <h2>
+                &lt;picture&gt;<br>
+                <a class="quiet" href="http://picture.responsiveimages.org/" target="_blank">picture.responsiveimages.org</a>
+            </h2>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2><a href="https://github.com/scottjehl/picturefill" target="_blank">Picturefill</a></h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>&lt;picture&gt;</h2>
+            <pre>
+                <code>&lt;picture&gt;</code>
+                <code>  &lt;source <mark>srcset</mark>=&quot;examples/images/large.jpg,</code>
+                <code>      examples/images/extralarge.jpg 2x&quot;</code>
+                <code>    <mark>media</mark>=&quot;(min-width: 720px)&quot;&gt;</code>
+                <code>  &lt;source srcset=&quot;&hellip;&quot; media=&quot;&hellip;&quot;&gt;</code>
+                <code>  &lt;img src=&quot;examples/images/small.jpg&quot; alt=&quot;&quot;&gt;</code>
+                <code>&lt;/picture&gt;</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>&lt;picture&gt;</h2>
+            <pre>
+                <code>&lt;picture&gt;</code>
+                <code>  &lt;source srcset=&quot;examples/images/large.jpg <mark>640w</mark>,</code>
+                <code>      examples/images/extralarge.jpg <mark>1280w</mark>&quot;</code>
+                <code>    media=&quot;(min-width: 720px)&quot;&gt;</code>
+                <code>  &lt;source srcset=&quot;&hellip;&quot; media=&quot;&hellip;&quot;&gt;</code>
+                <code>  &lt;img src=&quot;examples/images/small.jpg&quot; alt=&quot;&quot;&gt;</code>
+                <code>&lt;/picture&gt;</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>srcset и sizes</h2>
+            <pre>
+                <code>&lt;img src=&quot;small.jpg&quot;</code>
+                <code>  srcset=&quot;medium.jpg 640w, small.jpg 320w&quot;</code>
+                <code>  <mark>sizes</mark>=&quot;(min-width: 36em) 33.3vw, 100vw&quot;</code>
+                <code>  alt=&quot;Responsive image&quot;/&gt;</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Srcset and sizes</h2>
+            <p><a href="http://ericportis.com/posts/2014/srcset-sizes/"
+                   target="_blank">http://ericportis.com/posts/2014/srcset-sizes/</a></p>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Picturefill<br>2.0 vs 1.2</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <pre>
+                <code>&lt;span data-alt=&quot;Responsive image&quot; <mark>data-picture</mark>&gt;</code>
+                <code>  &lt;span data-src=&quot;mobile.jpg&quot;&gt;&lt;/span&gt;</code>
+                <code>  &lt;span data-src=&quot;retina.jpg&quot; data-media=&quot;</code>
+                <code>    only screen and (-webkit-min-device-pixel-ratio: 1.5),</code>
+                <code>    only screen and (min-resolution: 1.5dppx),</code>
+                <code>    only screen and (min-resolution: 144dpi)&quot;&gt;&lt;/span&gt;</code>
+                <code>  &lt;span data-src=&quot;desktop.jpg&quot; data-media=&quot;</code>
+                <code>    (min-width: 720px)&quot;&gt;&lt;/span&gt;</code>
+                <code>&lt;/span&gt;
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Хостинг картинок + CDN</h2>
+            <p>Обрезка, изменение размеров, конвертирование форматов, сохраниение с нужным качеством</p>
+            <ul>
+                <li class="next">Uploadcare (scale, crop)</li>
+                <li class="next">Cloudinary (scale, crop, <strong>face crop</strong>)</li>
+            </ul>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Сборка ресурсов</h2>
+        </div>
+    </section>
+    <section class="slide cover w">
+        <div>
+            <img src="http://placehold.it/784x392&text=Compile+LESS+to+CSS">
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Заключение</h2>
+        </div>
+    </section>
+    <section class="slide"><div>
+        <h2>Спасибо за внимание</h2>
+        <p><strong>Владимир Кузнецов</strong><br>
+            Twitter: <a href="http://twitter.com/mista_k">@mista_k</a><br>
+            Блог: <a href="http://noteskeeper.ru">noteskeeper.ru</a></p>
+        <p>Слайды презентации: <a href="http://bit.ly/">bit.ly</a>
+    </div></section>
 
-	<div class="progress"><div></div></div>
+    <div class="progress"><div></div></div>
 
-	<script src="shower/shower.min.js"></script>
-	<script src="shower/shower-events.js"></script>
-	<script src="js/libs/jquery-2.1.0.min.js"></script>
-	<script src="js/libs/physicsjs-full-0.5.4.js"></script>
-	<script src="js/cells.js"></script>
-	<script src="js/presentation.js"></script>
-	<!-- Copyright © 2014 Vladimir Kuznetsov -->
+    <script src="shower/shower.min.js"></script>
+    <!-- Copyright © 2014 Vladimir Kuznetsov -->
 </body>
 </html>
